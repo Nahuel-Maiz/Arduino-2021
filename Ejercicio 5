@@ -1,0 +1,28 @@
+#define RG_rojo 6
+#define RG_azul 5
+#define RG_verde 3
+#define pote1 A0
+#define pote2 A1
+#define pote3 A2
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(RG_rojo, OUTPUT);
+  pinMode(RG_azul, OUTPUT);
+  pinMode(RG_verde, OUTPUT);
+}
+
+void loop()
+{
+  int valor = map(analogRead(pote1), 0, 1023, 0, 255);
+  Serial.println(valor);
+  analogWrite(RG_rojo, valor);
+  
+  int valor1 = map(analogRead(pote2), 0, 1023, 0, 255);
+  Serial.println(valor1);
+  analogWrite(RG_azul, valor1);
+  
+  int valor2 = map(analogRead(pote3), 0, 1023, 0, 255);
+  Serial.println(valor2);
+  analogWrite(RG_verde, valor2);
+}
