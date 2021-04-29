@@ -1,0 +1,38 @@
+#define ver 8
+#define ama 9
+#define roj 10
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(ver, OUTPUT);
+  pinMode(ama, OUTPUT);
+  pinMode(roj, OUTPUT);
+}
+
+void loop()
+{
+  int num = random(0, 11);
+  Serial.println(num);
+  if (num == 0 || num == 2 || num == 8){
+    digitalWrite(ver, HIGH);
+    delay(2000); // Wait for 1000 millisecond(s)
+    digitalWrite(ver, LOW);
+    delay(2000); // Wait for 1000 millisecond(s)
+  }else if (num == 5 || num == 4 || num == 9){
+      digitalWrite(ama, HIGH);
+      delay(2000); // Wait for 1000 millisecond(s)
+      digitalWrite(ama, LOW);
+      delay(2000); // Wait for 1000 millisecond(s)
+  }else if (num == 1 || num == 3 || num == 7){
+      digitalWrite(roj, HIGH);
+      delay(2000); // Wait for 1000 millisecond(s)
+      digitalWrite(roj, LOW);
+      delay(2000); // Wait for 1000 millisecond(s)
+  }else{
+      digitalWrite(ama, LOW);
+      digitalWrite(ver, LOW);
+      digitalWrite(roj, LOW);
+  	  delay(2000);
+  };
+}
