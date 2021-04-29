@@ -1,0 +1,42 @@
+#define echo 9
+#define trig 10
+#define rojo 8
+ 
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(echo, INPUT);
+  pinMode(trig, OUTPUT);
+  pinMode(rojo, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(trig, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  
+  int duration = pulseIn(echo, HIGH);
+  
+  double cm = duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.print(cm);
+  Serial.println(" cm");
+  delay(250);
+  
+  if (cm < 25){
+    analogWrite(rojo, 255);
+    //delay(1000);
+  }else if (cm < 40 && cm > 25){
+    analogWrite(rojo, 175);
+    //delay(1000);
+  }else if (cm < 70 && cm > 40){
+    analogWrite(rojo, 75);
+    //delay(1000);
+  }else{
+    analogWrite(rojo, 0);
+    //delay(1000);
+  }
+}
