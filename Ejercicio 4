@@ -1,0 +1,32 @@
+#define ama 9
+#define ver 8
+#define roj 10
+#define pote0 A0
+#define pote1 A1
+#define pote2 A2
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(ver, OUTPUT);
+  pinMode(ama, OUTPUT);
+  pinMode(roj, OUTPUT);
+}
+
+void loop()
+{
+  int valor0 = map(analogRead(pote0), 0, 1023, 0, 255);
+  Serial.println(valor0);
+  delay(1000);
+  analogWrite(ver, valor0);
+  
+  int valor1 = map(analogRead(pote1), 0, 1023, 0, 255);
+  Serial.println(valor1);
+  delay(1000);
+  analogWrite(ama, valor1);
+  
+  int valor2 = map(analogRead(pote2), 0, 1023, 0, 255);
+  Serial.println(valor2);
+  delay(1000);
+  analogWrite(roj, valor2);
+}
