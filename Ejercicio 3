@@ -1,0 +1,66 @@
+#define roj 8
+#define ver 9
+#define azu 10
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(roj, OUTPUT);
+  pinMode(ver, OUTPUT);
+  pinMode(azu, OUTPUT);
+}
+
+void loop()
+{
+  for(int i=0; i<=6;i++){
+    coloress(i);
+    delay(2000);
+    coloress(7);
+    delay(2000);
+  }
+}
+
+void coloress(int num){
+  switch (num) {
+  case 0: //ROJO
+    digitalWrite(roj, HIGH);
+    digitalWrite(azu, LOW);
+    digitalWrite(ver, LOW);
+    break;
+  case 1: //VERDE
+    digitalWrite(roj, LOW);
+    digitalWrite(azu, LOW);
+    digitalWrite(ver, HIGH);
+    break;
+  case 2: //AZUL
+    digitalWrite(roj, LOW);
+    digitalWrite(azu, HIGH);
+    digitalWrite(ver, LOW);
+    break;
+  case 3: //AMARILLO
+    digitalWrite(roj, HIGH);
+    digitalWrite(azu, LOW);
+    digitalWrite(ver, HIGH);
+    break;
+  case 4: //VIOLETA
+    digitalWrite(roj, HIGH);
+    digitalWrite(azu, HIGH);
+    digitalWrite(ver, LOW);
+    break;
+  case 5: //CELESTE
+    digitalWrite(roj, LOW);
+    digitalWrite(azu, HIGH);
+    digitalWrite(ver, HIGH);
+    break;
+  case 6: //BLANCO
+    digitalWrite(roj, HIGH);
+    digitalWrite(azu, HIGH);
+    digitalWrite(ver, HIGH);
+    break;
+  default: //APAGADO
+    digitalWrite(roj, LOW);
+    digitalWrite(azu, LOW);
+    digitalWrite(ver, LOW);
+    break;
+  }
+}
