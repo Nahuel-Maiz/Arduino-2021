@@ -1,0 +1,54 @@
+#define echo 11
+#define trig 12
+#define verde 8
+#define azul 9
+#define rojo 10
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(echo, INPUT);
+  pinMode(trig, OUTPUT);
+  pinMode(rojo, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(verde, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(trig, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  
+  int duration = pulseIn(echo, HIGH);
+  
+  double cm = duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.print(cm);
+  Serial.println(" cm");
+  delay(250);
+  
+  if (cm < 5){//ROJO
+    digitalWrite(rojo, HIGH);
+    digitalWrite(verde, LOW);
+    digitalWrite(azul, LOW);
+    //delay(1000);
+  }else if (cm < 10 && cm > 5){//BLANCO(NO SE COMO HACER NARANJA)
+    digitalWrite(rojo, HIGH);
+    digitalWrite(azul, HIGH);
+    digitalWrite(verde, HIGH);
+    //delay(1000);
+  }else if (cm < 25 && cm > 10){//AMARILLO
+    digitalWrite(rojo, HIGH);
+    digitalWrite(verde, HIGH);
+    digitalWrite(azul, LOW);
+    //delay(1000);
+  }else{ //TODOS APAGADOS
+    digitalWrite(rojo, LOW);
+    digitalWrite(verde, LOW);
+    digitalWrite(azul, LOW);
+    //delay(1000);
+  }
+}
