@@ -1,0 +1,32 @@
+#define verde 8
+#define azul 9
+#define rojo 10
+#define pulsador 6
+
+int color;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(rojo, OUTPUT);
+  pinMode(pulsador, INPUT); 
+  color = 0;
+}
+
+void loop()
+{
+  int boton = digitalRead(pulsador);
+  Serial.println(pulsador);
+  if (boton == HIGH ){
+    color = random(8,11);
+	digitalWrite(color, HIGH);
+    delay(500);
+  }
+  else {
+   digitalWrite(verde, LOW);
+   digitalWrite(rojo, LOW);
+   digitalWrite(azul, LOW);
+  }
+}
