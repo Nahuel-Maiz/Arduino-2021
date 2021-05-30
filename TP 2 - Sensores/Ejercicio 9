@@ -1,0 +1,282 @@
+#define verde 8
+#define azul 9
+#define rojo 10
+#define pulsador 6
+
+int cont;
+int color;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+  pinMode(rojo, OUTPUT);
+  pinMode(pulsador, INPUT); 
+  cont = 0;
+  color = 0;
+}
+
+void loop()
+{
+  int boton = digitalRead(pulsador);
+  //Serial.println(pulsador);
+  if (boton == HIGH && cont <=10){
+    cont = (cont + 1);
+    Serial.print(String("Pulsaciones: "));
+    Serial.println(cont);
+    color = random(8,11);
+    parpadeos(cont);
+    delay(500);
+  }
+  
+  if (cont == 10){
+    Serial.println("Vibraciones Reiniciadas");
+    cont = 0;
+  }
+}
+
+void parpadeos(int num){
+  switch(num){
+  	case 1: //1 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 2: //2 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 3: //3 Parapadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 4: //4 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 5: //5 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 6: //6 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 7: //7 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 8: //8 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 9: //9 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+    case 10: //10 Parpadeos
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	digitalWrite(color, HIGH);
+    	delay(500);
+        digitalWrite(color, LOW);
+        delay(500);
+    	break;
+  }  
+}
