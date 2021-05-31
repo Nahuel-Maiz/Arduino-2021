@@ -1,38 +1,38 @@
-#define verde 8
-#define azul 9
-#define rojo 10
-#define pulsador 6
+#define rojo 8
+#define tilt 7
 
+int estado;
 int cont;
 int color;
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(verde, OUTPUT);
-  pinMode(azul, OUTPUT);
   pinMode(rojo, OUTPUT);
-  pinMode(pulsador, INPUT); 
+  pinMode(tilt, INPUT); 
+  estado = 1;
   cont = 0;
   color = 0;
 }
 
 void loop()
 {
-  int boton = digitalRead(pulsador);
-  //Serial.println(pulsador);
-  if (boton == HIGH && cont <=10){
+  estado = digitalRead(tilt);
+  if (estado == LOW && cont <=10){
     cont = (cont + 1);
     Serial.print(String("Pulsaciones: "));
     Serial.println(cont);
-    color = random(8,11);
+    color = 8;
     parpadeos(cont);
-    delay(500);
+    delay(1000);
+    if (cont == 10){
+    	Serial.println("Vibraciones Reiniciadas");
+    	cont = 0;
+      	delay(1000);
+  	}
   }
-  
-  if (cont == 10){
-    Serial.println("Vibraciones Reiniciadas");
-    cont = 0;
+  else {
+    digitalWrite(rojo, LOW);
   }
 }
 
