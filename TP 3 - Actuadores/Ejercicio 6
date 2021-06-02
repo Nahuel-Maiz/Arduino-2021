@@ -1,0 +1,50 @@
+#define echo 8
+#define trig 9
+int sonido = 10;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(echo, INPUT);
+  pinMode(trig, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(trig, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  
+  int duration = pulseIn(echo, HIGH);
+  
+  double cm = duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.print(cm);
+  Serial.println(" cm");
+  delay(250);
+  
+  if (cm > 20 && cm < 30) {
+    tone(sonido, 500);
+  	delay(1500);
+    noTone(sonido);
+  	delay(1500);
+  } else if (cm > 12 && cm < 20) {
+    tone(sonido, 500);
+  	delay(1000);
+    noTone(sonido);
+  	delay(1000);
+  } else if (cm > 6 && cm < 12) {
+    tone(sonido, 500);
+  	delay(500);
+    noTone(sonido);
+  	delay(500);
+  } else if (cm > 2 && cm < 6) {
+    tone(sonido, 500);
+  	delay(250);
+    noTone(sonido);
+  	delay(250);
+  } else {
+    noTone(sonido);
+  }
+}
