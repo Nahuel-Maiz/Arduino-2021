@@ -1,0 +1,16 @@
+#include <Servo.h>
+Servo servo1;
+
+#define pote A0
+
+void setup()
+{
+  servo1.attach(3);
+}
+
+void loop()
+{
+  int valor = map(analogRead(pote), 0, 1023, 0, 180);
+  Serial.println(valor);
+  servo1.write(valor);
+}
