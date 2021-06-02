@@ -1,0 +1,13 @@
+#include <Servo.h>
+Servo servo1;
+
+void setup()
+{
+  servo1.attach(3);
+}
+
+void loop()
+{
+  servo1.write(random(0,180));
+  delay(1000);
+}
