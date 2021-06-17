@@ -1,0 +1,22 @@
+#define azul 8
+#define rojo 9
+#define flex A0
+
+void setup()
+{
+  Serial. begin(9600); 
+  pinMode(azul, OUTPUT);
+  pinMode(rojo, OUTPUT);
+}
+
+void loop()
+{
+  int valor = map(analogRead(flex), 6, 33, 0, 255);
+  int valor2 = map(analogRead(flex), 6, 33, 255, 0);
+  Serial.print("Valor del led azul: ");
+  Serial.println(valor);
+  Serial.print("Valor del led Rojo: ");
+  Serial.println(valor2);
+  analogWrite(azul,valor);
+  analogWrite(rojo,valor2);
+}
